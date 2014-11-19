@@ -17,19 +17,18 @@ NeoBundle '844196/memo.vim', {
 let g:memopath = '~/yukimura/aoichan/kawaii/'
 ```
 
-- `:MemoNew` create new memo
-- `:Unite memo` view memo list
+- `:Unite memo` create new memo & view memo list
 
 ### Additional usages
 ```vim
-" memo list
+" create new memo & view memo list
 nnoremap <silent> <F2> :<C-u>Unite memo
     \ -buffer-name=memo_list -winheight=10 -max-multi-lines=1
     \ <CR>
 
-" memo grep
+" grep memo
 nnoremap <silent> <C-n> :<C-u>execute(
-    \ 'Unite grep:' . g:memopath . ' -no-empty -winheight=10'
+    \ 'Unite grep:' . memo#getpath() . ' -no-empty -winheight=10'
     \ )<CR>
 ```
 
