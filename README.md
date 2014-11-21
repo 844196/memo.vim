@@ -33,4 +33,4 @@ nnoremap <silent> <C-n> :<C-u>execute(
 ```
 
 ## License
-Do What The F*ck You Want To Public Licens Version 2 (WTFPL-2.0)
+Do What The F*ck You Want To Public License Version 2 (WTFPL-2.0)
