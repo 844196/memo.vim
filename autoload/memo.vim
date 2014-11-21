@@ -1,4 +1,3 @@
-" 読み込み前の&cpo(設定値)を格納後、vimの初期値に戻す
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -21,7 +20,5 @@ function! memo#getlist()
 endfunction
 
 
-" 読み込み前の&cpoの値を読み込み
 let &cpo = s:save_cpo
-" 作業用変数を削除
 unlet s:save_cpo
