@@ -52,8 +52,8 @@ let s:memo_source.action_table.execute = { 'description' : 'create new memo' }
 function! s:memo_source.action_table.execute.func(candidates)
     silent edit `=a:candidates.action__path`
     call append(0, [
+                \ '<date>' . strftime("%Y-%m-%d %H:%M") . '</date>',
                 \ '# ' . a:candidates.action__create,
-                \ 'date: ' . strftime("%Y-%m-%d"),
                 \ '',
                 \ ''
                 \ ])
