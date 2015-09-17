@@ -51,12 +51,17 @@ endfunction
 let s:memo_source.action_table.execute = { 'description' : 'create new memo' }
 function! s:memo_source.action_table.execute.func(candidates)
     silent edit `=a:candidates.action__path`
-    call append(0, [
-                \ '<date>' . strftime("%Y-%m-%d %H:%M") . '</date>',
-                \ '# ' . a:candidates.action__create,
-                \ '',
-                \ ''
+
+    let l:template = get(g:, 'memo_template',
+                \ [
+                \   '# ' . '%_TITLE_%',
+                \   '',
+                \   ''
                 \ ])
+    let l:template = map(copy(l:template), "substitute(v:val, '%_TITLE_%', a:candidates.action__create, 'g')")
+    let l:template = map(copy(l:template), "substitute(v:val, '%_TIME_%', strftime(\"%Y-%m-%d %H:%M\"), 'g')")
+
+    call append(0, l:template)
     execute '844196'
 endfunction
 
