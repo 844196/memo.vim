@@ -3,10 +3,11 @@ set cpo&vim
 
 
 function! memo#getpath()
-    if g:memopath !~ '\/$'
-        return expand(g:memopath . '/')
+    let l:path = g:memo_path
+    if l:path !~ '\/$'
+        return expand(l:path . '/')
     else
-        return expand(g:memopath)
+        return expand(l:path)
     endif
 endfunction
 
